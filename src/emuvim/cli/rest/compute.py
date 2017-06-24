@@ -88,11 +88,11 @@ class RestApiClient():
                               ','.join(dc_if_list)])
                 #status.get("state").get("Status")]
 
-        headers = ["Datacenter",
+        headers = ["Fogs",
                    "Container",
                    "Image",
                    "Interface list",
-                   "Datacenter interfaces"]
+                   "Fog interfaces"]
         print(tabulate(table, headers=headers, tablefmt="grid"))
 
     def status(self, args):
@@ -111,7 +111,7 @@ class RestApiClient():
                    '-e', "docker exec -it mn.{0} /bin/bash".format(vnf_name)])
 
 parser = argparse.ArgumentParser(description="""son-emu-cli compute
-    
+
     Examples:
     - son-emu-cli compute start -d dc2 -n client -i sonatanfv/sonata-iperf3-vnf
     - son-emu-cli list

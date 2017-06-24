@@ -114,7 +114,7 @@ class RestApiEndpoint(object):
         logging.debug("Created API endpoint %s(%s:%d)" % (self.__class__.__name__, self.ip, self.port))
 
 
-    def connectDatacenter(self, dc):
+    def connectFog(self, dc):
         compute.dcs[dc.label] = dc
         logging.info(
             "Connected DC(%s) to API endpoint %s(%s:%d)" % (dc.label, self.__class__.__name__, self.ip, self.port))

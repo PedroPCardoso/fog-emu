@@ -53,17 +53,17 @@ def create_topology1():
     1. Create a data center network object (DCNetwork)
     """
     net = DCNetwork(controller=RemoteController, monitor=False, enable_learning=True)
-    
+
     """
     2. Add (logical) data centers to the topology
        (each data center is one "bigswitch" in our simplified
         first prototype)
     """
-    dc1 = net.addDatacenter("datacenter1")
-    dc2 = net.addDatacenter("datacenter2")
-    dc3 = net.addDatacenter("long_data_center_name3")
-    dc4 = net.addDatacenter(
-        "datacenter4",
+    fog1 = net.addFogInstance("fog1")
+    fog2 = net.addFogInstance("fog2")
+    fog3 = net.addFogInstance("long_data_center_name3")
+    fog4 = net.addFogInstance(
+        "fog4",
         metadata={"mydata": "we can also add arbitrary metadata to each DC"})
 
     """
@@ -77,10 +77,10 @@ def create_topology1():
        to define you topology.
        These links can use Mininet's features to limit bw, add delay or jitter.
     """
-    net.addLink(dc1, dc2)
-    net.addLink("datacenter1", s1)
-    net.addLink(s1, dc3)
-    net.addLink(s1, "datacenter4")
+    net.addLink(fog1, fog2)
+    net.addLink("fog1", s1)
+    net.addLink(s1, fog3)
+    net.addLink(s1, "fog4")
 
     """
     5. We want to access and control our data centers from the outside,
@@ -95,10 +95,10 @@ def create_topology1():
     # create a new instance of a endpoint implementation
     rapi1 = RestApiEndpoint("127.0.0.1", 5001, net)
     # connect data centers to this endpoint
-    rapi1.connectDatacenter(dc1)
-    rapi1.connectDatacenter(dc2)
-    rapi1.connectDatacenter(dc3)
-    rapi1.connectDatacenter(dc4)
+    rapi1.connectFog(fog1)
+    rapi1.connectFog(fog2)
+    rapi1.connectFog(fog3)
+    rapi1.connectFog(fog4)
     # run API endpoint server (in another thread, don't block)
 
     rapi1.start()

@@ -132,7 +132,7 @@ class DCNetwork(Containernet):
             dc_emulation_max_cpu, dc_emulation_max_mem)
         self.cpu_period = CPU_PERIOD
 
-    def addDatacenter(self, label, metadata={}, resource_log_path=None):
+    def addFogInstance(self, label, metadata={}, resource_log_path=None):
         """
         Create and add a logical cloud data center to the network.
         """

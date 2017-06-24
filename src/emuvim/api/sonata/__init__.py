@@ -61,7 +61,7 @@ class SonataDummyGatekeeperEndpoint(object):
     def __repr__(self):
         return "%s(%s:%d)" % (self.__class__.__name__, self.ip, self.port)
 
-    def connectDatacenter(self, dc):
+    def connectFog(self, dc):
         self.dcs[dc.label] = dc
         logging.info("Connected DC(%s) to API endpoint %s" % (
             dc, self))
