@@ -1,0 +1,5 @@
+son-emu-cli compute start -d fog4 -n vnf5 --image mongo
+son-emu-cli compute start -d fog1 -n vnf4 --image redis
+son-emu-cli compute start -d fog4 -n vnf3
+son-emu-cli compute start -d fog2 -n vnf2 --image mongo
+son-emu-cli compute start -d fog1 -n vnf1 --image mongo

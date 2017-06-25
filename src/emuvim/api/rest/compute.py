@@ -50,7 +50,6 @@ class Compute(Resource):
     example networks list({"id":"input","ip": "10.0.0.254/8"}, {"id":"output","ip": "11.0.0.254/24"})
     :return: docker inspect dict of deployed docker
     """
-
     global dcs
 
     def put(self, dc_label, compute_name, resource=None, value=None):

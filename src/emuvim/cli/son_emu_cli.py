@@ -39,7 +39,7 @@ partner consortium (www.sonata-nfv.eu).
 
 import sys
 from emuvim.cli.rest import compute as restcom
-from emuvim.cli.rest import datacenter as restdc
+from emuvim.cli.rest import fog as restdc
 from emuvim.cli.rest import monitor as restmon
 from emuvim.cli.rest import network as restnetw
 
@@ -54,7 +54,7 @@ def main():
         restnetw.main(sys.argv[2:])
     elif sys.argv[1] == "compute":
         restcom.main(sys.argv[2:])
-    elif sys.argv[1] == "datacenter":
+    elif sys.argv[1] == "fog":
         restdc.main(sys.argv[2:])
 
 

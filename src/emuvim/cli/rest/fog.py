@@ -45,7 +45,7 @@ class RestApiClient():
             print("Command not implemented.")
 
     def list(self,args):
-        list = get('%s/restapi/datacenter' % args.get('endpoint')).json()
+        list = get('%s/restapi/fog' % args.get('endpoint')).json()
         table = []
         for d in list:
             # for each dc add a line to the output table
@@ -98,4 +98,3 @@ def main(argv):
     args = vars(parser.parse_args(argv))
     c = RestApiClient()
     c.execute_command(args)
-

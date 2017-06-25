@@ -81,8 +81,8 @@ class RestApiEndpoint(object):
                       "/restapi/compute/<dc_label>")
         self.api.add_resource(ComputeResources, "/restapi/compute/resources/<dc_label>/<compute_name>")
 
-        self.api.add_resource(DatacenterStatus, "/restapi/datacenter/<dc_label>")
-        self.api.add_resource(DatacenterList, "/restapi/datacenter")
+        self.api.add_resource(DatacenterStatus, "/restapi/fog/<dc_label>")
+        self.api.add_resource(DatacenterList, "/restapi/fog")
 
 
         # network related actions (setup chaining between VNFs)
