@@ -3,3 +3,26 @@ son-emu-cli compute start -d fog1 -n vnf4 --image redis
 son-emu-cli compute start -d fog4 -n vnf3
 son-emu-cli compute start -d fog2 -n vnf2 --image mongo
 son-emu-cli compute start -d fog1 -n vnf1 --image mongo
+
+
+ son-emu-cli compute list
+ son-emu-cli fog list
+
+docker ps
+
+ sudo docker exec -it c8ce60394b63 /bin/bash
+
+
+desafio
+
+ping entre as maquinas de fogs diferentes
+
+
+
+
+
+
+
+
+
+#Container fog-emu
