@@ -1,12 +1,18 @@
-son-emu-cli compute start -d fog4 -n vnf5 --image mongo
-son-emu-cli compute start -d fog1 -n vnf4 --image redis
+
+sudo python src/emuvim/examples/simple_topology.py
+
+
+son-emu-cli compute start -d fog4 -n vnf5
+son-emu-cli compute start -d fog1 -n vnf4 --image fedora
 son-emu-cli compute start -d fog4 -n vnf3
-son-emu-cli compute start -d fog2 -n vnf2 --image mongo
-son-emu-cli compute start -d fog1 -n vnf1 --image mongo
+son-emu-cli compute start -d fog2 -n vnf2 --image fedora
+son-emu-cli compute start -d fog1 -n vnf1
+kalilinux/kali-linux-docker:latest
 
 
  son-emu-cli compute list
  son-emu-cli fog list
+ son-emu-cli network add -src vnf1 -dst vnf2 -b
 
 docker ps
 
@@ -18,11 +24,20 @@ desafio
 ping entre as maquinas de fogs diferentes
 
 
+docker run -ti --rm=true --net=host --pid=host --privileged=true -v '/var/run/docker.sock:/var/run/docker.sock' pedrox/fog-emu
 
+Installation
+Automatic installation is provide through an Ansible playbook.
 
-
-
-
-
+Requires: Ubuntu 14.04 LTS
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install ansible git aptitude
+sudo vim /etc/ansible/hosts
+Add: localhost ansible_connection=local
+git clone https://github.com/mpeuster/containernet.git
+cd containernet/ansible
+sudo ansible-playbook install.yml
+Wait (and have a coffee) ...
 
 #Container fog-emu

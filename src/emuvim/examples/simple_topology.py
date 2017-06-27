@@ -52,7 +52,7 @@ def create_topology1():
     """
     1. Create a data center network object (DCNetwork)
     """
-    net = DCNetwork(controller=RemoteController, monitor=False, enable_learning=True)
+    net = DCNetwork(controller=RemoteController, monitor=True, enable_learning=True)
 
     """
     2. Add (logical) data centers to the topology
